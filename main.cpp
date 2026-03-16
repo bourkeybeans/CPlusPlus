@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <iostream>
-#include "task.h"
+#include "CommandTool.h"
 
 using namespace std;
+
+CommandTool c;
 
 int main(int argc, char** argv) {
 
@@ -17,9 +19,11 @@ int main(int argc, char** argv) {
         if (command == "exit"){
             break;
         }
+
+        c.findCommand(command);
         
 
     }
 
     
-}
+};

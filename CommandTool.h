@@ -2,7 +2,6 @@
 #include <unordered_map>
 #include <functional>
 #include <string>
-#include "Task.h"
 #include "TaskManager.h"
 #include <vector>
 #include "Util.h"
@@ -16,7 +15,7 @@ class CommandTool {
         CommandTool(){ // capture current object, no parameters, run this lambda
             commands["add"] = [this]() {addTask();};
             commands["list"] = [this]() {listTask();};
-            commands["exit"] = [this]() {exitApp();}
+            commands["exit"] = [this]() {exitApp();};
         }
         void findCommand(std::string command){
 
@@ -32,7 +31,7 @@ class CommandTool {
     
     private:
         void addTask(){
-            std::cout<<"List Description, Priority, Hours Allocated";
+            std::cout<<"| List Description | Priority (1-5) | Hours Allocated |" << endl;
             std::string details;
     
             std::getline(std::cin, details);
@@ -41,8 +40,14 @@ class CommandTool {
             
             if (tokens.empty()) return;
 
-            
 
+            for (auto& token : tokens){
+                std::cout << " -- " << token << " -- "; 
+            }
+
+
+
+            std::cout<< endl;
 
             
         }
@@ -54,4 +59,4 @@ class CommandTool {
         void exitApp(){
             return;
         }
-}
+};
